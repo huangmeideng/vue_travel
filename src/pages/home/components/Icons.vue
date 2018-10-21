@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) in pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
@@ -16,61 +16,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconsList: [
-        {
-          id: '0001',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/89429970.jpg',
-          desc: '景点门票'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/84074220.jpg',
-          desc: '一日游'
-        },
-        {
-          id: '0003',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/81270080.jpg',
-          desc: '自助游'
-        },
-        {
-          id: '0004',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/98335119.jpg',
-          desc: '酒店'
-        },
-        {
-          id: '0005',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/39456985.jpg',
-          desc: '美食'
-        },
-        {
-          id: '0006',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/40823563.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: '0007',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/10758567.jpg',
-          desc: '自然风光'
-        },
-        {
-          id: '0008',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/56830501.jpg',
-          desc: '科技馆'
-        },
-        {
-          id: '0009',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/69189710.jpg',
-          desc: '全部'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

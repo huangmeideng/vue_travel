@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item in list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" :alt="item.title">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,47 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/68207900.jpg',
-          title: '形势变化',
-          desc: '达不成补偿代表处的'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/49085717.jpg',
-          title: 'CDC上的的程度',
-          desc: '产地四川省杰出的成就'
-        },
-        {
-          id: '0003',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/53111634.jpg',
-          title: '从当初的不错',
-          desc: '从成都市成都市CDC的'
-        },
-        {
-          id: '0004',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/15525469.jpg',
-          title: '差不多删除',
-          desc: 'CDC但是传递出多层次的长度'
-        },
-        {
-          id: '0005',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/73368647.jpg',
-          title: '才不会代表处代表',
-          desc: '导出到处都是CDC对策'
-        },
-        {
-          id: '0006',
-          imgUrl: 'http://ozy3pax09.bkt.clouddn.com/18-10-21/31588707.jpg',
-          title: '咯空哦空',
-          desc: '都差不多吧成都成都CDC'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
